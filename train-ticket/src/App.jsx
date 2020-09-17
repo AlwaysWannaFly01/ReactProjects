@@ -1,31 +1,36 @@
-import React, {Component, lazy, Suspense} from 'react';
+import React, {Component, PureComponent, memo} from 'react';
 import './App.css';
 
-const About = lazy(() => import(/*webpackChunkName:"about"*/'./About.jsx'));
-
-// ErrorBoundary
-// componentDidCatch
+const Foo = memo(function Foo(props) {
+    console.log('Foo render')
+    return <div>{props.person.age}</div>;
+})
 
 class App extends Component {
     state = {
-        hasError: false
+        count: 0,
+        person: {
+            age: 1
+        }
     }
 
-    static getDerivedStateFromError() {
-        return {
-            hasError: true
-        }
+    callback = () => {
+
     }
 
     render() {
-        if (this.state.hasError) {
-            return <div>error</div>
-        }
+        const {person} = this.state
         return (
             <div>
-                <Suspense fallback={<div>loading</div>}>
-                    <About></About>
-                </Suspense>
+                <button onClick={() => {
+                    person.age++;
+                    this.setState({
+                        count: this.state.count + 1
+                    })
+                }}>
+                    Add
+                </button>
+                <Foo person={person} cb={this.callback}/>
             </div>
         )
     }
