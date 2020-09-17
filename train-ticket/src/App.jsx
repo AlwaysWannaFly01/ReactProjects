@@ -1,43 +1,26 @@
 import React, {Component, useState, PureComponent, useMemo, memo, useCallback, useRef, useEffect} from 'react';
 import './App.css';
 
-// const Counter = memo(function Counter(props) {
-//     console.log('Counter render')
-//     return (
-//         <h1 onClick={props.onClick}>{props.count}</h1>
-//     )
-// })
 
-class Counter extends PureComponent {
-    speak() {
-        console.log(`now counter is :${this.props.count}`)
-    }
+// class Counter extends PureComponent {
+//     render() {
+//         const {props} = this;
+//         return (
+//             <h1>{props.count}</h1>
+//         )
+//
+//     }
+// }
 
-    render() {
-        const {props} = this;
-        return (
-            <h1 onClick={props.onClick}>{props.count}</h1>
-        )
-
-    }
+function useCounter(count) {
+    return (
+        <h1>{count}</h1>
+    )
 }
 
-function App(props) {
-    const [count, setCount] = useState(0);
-    const [clickCount, setClickCount] = useState(0);
+function useCount(defaultCount) {
+    const [count, setCount] = useState(defaultCount);
     let it = useRef();
-    const double = useMemo(() => {
-        return count * 2
-    }, [count === 3]);
-
-    const counterRef = useRef();
-
-    const onClick = useCallback(() => {
-        console.log('click')
-        setClickCount((clickCount) => clickCount + 1);
-
-        counterRef.current.speak();
-    }, [clickCount])
 
     useEffect(() => {
         it.current = setInterval(() => {
@@ -45,16 +28,17 @@ function App(props) {
         }, 1000)
     }, [])
 
-    useEffect(()=>{
-        if(count>=10){
+    useEffect(() => {
+        if (count >= 10) {
             clearInterval(it.current)
         }
     })
+    return [count, setCount]
+}
 
-    /*
-    * useMemo(() => fn)
-    * useCallback(fn)
-    * */
+function App(props) {
+    const [count, setCount] = useCount(0);
+    const Counter = useCounter(count)
     return (
         <div>
             <button
@@ -62,9 +46,9 @@ function App(props) {
                 onClick={() => {
                     setCount(count + 1)
                 }}>
-                Click({count}),double({double})
+                Click({count})
             </button>
-            <Counter count={double} onClick={onClick} ref={counterRef}></Counter>
+            {Counter}
         </div>
     )
 }
