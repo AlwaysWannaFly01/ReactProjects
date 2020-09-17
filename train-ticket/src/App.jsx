@@ -1,89 +1,43 @@
-import React, {Component, useState, useEffect} from 'react';
+import React, {Component, useState, createContext, useContext} from 'react';
 import './App.css';
 
-class App2 extends Component {
-    state = {
-        count: 0,
-        size: {
-            width: document.documentElement.clientWidth,
-            height: document.documentElement.clientHeight,
-        }
-    }
+const CountContext = createContext();
 
-    onResize = () => {
-        this.setState({
-            size: {
-                width: document.documentElement.clientWidth,
-                height: document.documentElement.clientHeight,
-            }
-        })
-    }
-
-    componentDidMount() {
-        document.title = this.state.count;
-        window.addEventListener('resize', this.onResize, false)
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.onResize, false)
-    }
-
+class Foo extends Component {
     render() {
-        const {count, size} = this.state
         return (
-            <button
-                type="button"
-                onClick={() => {
-                    this.setState({count: count + 1})
-                }}>
-                Click({count})
-                size:{size.width} * {size.height}
-            </button>
+            <CountContext.Consumer>
+                {
+                    count => <h1>{count}</h1>
+                }
+            </CountContext.Consumer>
         )
     }
 }
 
+class Bar extends Component {
+    static contextType = CountContext;
+    render() {
+        const count = this.context;
+        return (
+            <CountContext.Consumer>
+                {
+                    count => <h1>{count}</h1>
+                }
+            </CountContext.Consumer>
+        )
+    }
+}
+
+function Counter() {
+    const count = useContext(CountContext)
+    return (
+        <h1>{count}</h1>
+    )
+}
 
 function App(props) {
     const [count, setCount] = useState(0);
-    const [size, setSize] = useState({
-        width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight,
-    })
-
-    const onResize = () => {
-        setSize({
-            width: document.documentElement.clientWidth,
-            height: document.documentElement.clientHeight,
-        })
-    }
-    useEffect(() => {
-        console.log('count', count);
-        /*第二个参数count改变,才会触发effect执行*/
-    }, [count])
-
-    useEffect(() => {
-        document.title = count;
-    })
-
-    useEffect(() => {
-        window.addEventListener('resize', onResize, false);
-        return () => {
-            window.removeEventListener('resize', onResize, false)
-        }
-    }, [])
-
-    const onClick = () => {
-        console.log('click')
-    }
-
-    useEffect(() => {
-        document.querySelector('#size').addEventListener('click', onClick, false)
-        return () => {
-            document.querySelector('#size').removeEventListener('click', onClick, false)
-        }
-    })
-
     return (
         <div>
             <button
@@ -92,16 +46,13 @@ function App(props) {
                     setCount(count + 1)
                 }}>
                 Click({count})
-                size:{size.width} * {size.height}
             </button>
-            {
-                count % 2 ?
-                    <span id="size">size:{size.width} * {size.height}</span> :
-                    <p id="size">size:{size.width} * {size.height}</p>
-            }
-
+            <CountContext.Provider value={count}>
+                <Foo></Foo>
+                <Bar></Bar>
+                <Counter></Counter>
+            </CountContext.Provider>
         </div>
-
     )
 }
 
