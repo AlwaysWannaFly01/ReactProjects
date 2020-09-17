@@ -5,21 +5,12 @@ const BatteryContext = createContext();
 const OnlineContext = createContext();
 
 class Leaf extends Component {
+    static contextType = BatteryContext;
+
     render() {
+        const battery = this.context;
         return (
-            <BatteryContext.Consumer>
-                {/*Consumer里面必须声明一个函数`*/}
-                {
-                    battery => (
-                        <OnlineContext.Consumer>
-                            {
-                                /*布尔值这里可能会显示不出来,需要转成字符串*/
-                                online => <h1>Battery:{battery}, Online: {String(online)}</h1>
-                            }
-                        </OnlineContext.Consumer>
-                    )
-                }
-            </BatteryContext.Consumer>
+            <h1>Battery:{battery}</h1>
         )
     }
 }
