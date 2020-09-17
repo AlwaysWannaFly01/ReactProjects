@@ -1,64 +1,34 @@
-import React, {Component, createContext} from 'react';
+import React, {Component, lazy, Suspense} from 'react';
 import './App.css';
 
-const BatteryContext = createContext();
-const OnlineContext = createContext();
+const About = lazy(() => import(/*webpackChunkName:"about"*/'./About.jsx'));
 
-class Leaf extends Component {
-    static contextType = BatteryContext;
-
-    render() {
-        const battery = this.context;
-        return (
-            <h1>Battery:{battery}</h1>
-        )
-    }
-}
-
-class Middle extends Component {
-    render() {
-        return <Leaf/>
-    }
-}
+// ErrorBoundary
+// componentDidCatch
 
 class App extends Component {
     state = {
-        battery: 60,
-        online: false
+        hasError: false
+    }
+
+    static getDerivedStateFromError() {
+        return {
+            hasError: true
+        }
     }
 
     render() {
-        const {battery, online} = this.state
+        if (this.state.hasError) {
+            return <div>error</div>
+        }
         return (
-            <BatteryContext.Provider value={battery}>
-                <OnlineContext.Provider value={online}>
-                    <button type="button" onClick={
-                        () => {
-                            this.setState({
-                                    battery: battery + 5
-                                }
-                            )
-                        }
-                    }>
-                        加5
-                    </button>
-                    <button type="button" onClick={
-                        () => {
-                            this.setState({
-                                    online: !online
-                                }
-                            )
-                        }
-                    }>
-                        切换
-                    </button>
-                    <Middle/>
-                </OnlineContext.Provider>
-            </BatteryContext.Provider>
+            <div>
+                <Suspense fallback={<div>loading</div>}>
+                    <About></About>
+                </Suspense>
+            </div>
         )
     }
-
-
 }
 
 export default App;
