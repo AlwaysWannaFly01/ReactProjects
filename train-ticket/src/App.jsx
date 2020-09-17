@@ -1,39 +1,108 @@
-import React, {Component, PureComponent, memo} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import './App.css';
 
-const Foo = memo(function Foo(props) {
-    console.log('Foo render')
-    return <div>{props.person.age}</div>;
-})
-
-class App extends Component {
+class App2 extends Component {
     state = {
         count: 0,
-        person: {
-            age: 1
+        size: {
+            width: document.documentElement.clientWidth,
+            height: document.documentElement.clientHeight,
         }
     }
 
-    callback = () => {
+    onResize = () => {
+        this.setState({
+            size: {
+                width: document.documentElement.clientWidth,
+                height: document.documentElement.clientHeight,
+            }
+        })
+    }
 
+    componentDidMount() {
+        document.title = this.state.count;
+        window.addEventListener('resize', this.onResize, false)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.onResize, false)
     }
 
     render() {
-        const {person} = this.state
+        const {count, size} = this.state
         return (
-            <div>
-                <button onClick={() => {
-                    person.age++;
-                    this.setState({
-                        count: this.state.count + 1
-                    })
+            <button
+                type="button"
+                onClick={() => {
+                    this.setState({count: count + 1})
                 }}>
-                    Add
-                </button>
-                <Foo person={person} cb={this.callback}/>
-            </div>
+                Click({count})
+                size:{size.width} * {size.height}
+            </button>
         )
     }
+}
+
+
+function App(props) {
+    const [count, setCount] = useState(0);
+    const [size, setSize] = useState({
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight,
+    })
+
+    const onResize = () => {
+        setSize({
+            width: document.documentElement.clientWidth,
+            height: document.documentElement.clientHeight,
+        })
+    }
+    useEffect(() => {
+        console.log('count', count);
+        /*第二个参数count改变,才会触发effect执行*/
+    }, [count])
+
+    useEffect(() => {
+        document.title = count;
+    })
+
+    useEffect(() => {
+        window.addEventListener('resize', onResize, false);
+        return () => {
+            window.removeEventListener('resize', onResize, false)
+        }
+    }, [])
+
+    const onClick = () => {
+        console.log('click')
+    }
+
+    useEffect(() => {
+        document.querySelector('#size').addEventListener('click', onClick, false)
+        return () => {
+            document.querySelector('#size').removeEventListener('click', onClick, false)
+        }
+    })
+
+    return (
+        <div>
+            <button
+                type="button"
+                onClick={() => {
+                    setCount(count + 1)
+                }}>
+                Click({count})
+                size:{size.width} * {size.height}
+            </button>
+            {
+                count % 2 ?
+                    <span id="size">size:{size.width} * {size.height}</span> :
+                    <p id="size">size:{size.width} * {size.height}</p>
+            }
+
+        </div>
+
+    )
 }
 
 export default App;
