@@ -94,8 +94,8 @@ const LS_KEY = '$-todos'
 
 function App() {
     const [todos, setTodos] = useState([]);
+    const {incrementCount, setIncrementCount} = useState(0);
 
-    console.log(todos)
     const addTodo = (todo) => {
         setTodos(todos => [...todos, todo])
     }
@@ -118,32 +118,65 @@ function App() {
         }
     )
 
-    const dispatch = useCallback((action) => {
+    function reducer(state, action) {
         const {type, payload} = action;
+        const {todos, incrementCount} = state;
+
         switch (type) {
-            case "set":
-                setTodos(payload)
-                break;
-            case "add":
-                setTodos(todos => [...todos, payload])
-                break;
-            case "remove":
-                setTodos(todos => todos.filter(todo => {
-                    return todo.id !== payload
-                }))
-                break;
-            case "toggle":
-                setTodos(todos => todos.map(todo => {
-                    return todo.id === payload ? {
-                        ...todo,
-                        complete: !todo.complete
-                    } : todo
-                }))
-                break;
-            default:
-                break;
+            case 'set':
+                return {
+                    ...state,
+                    todos: payload,
+                    incrementCount: incrementCount + 1
+                }
+            case 'add':
+                return {
+                    ...state,
+                    todos: [...todos, payload],
+                    incrementCount: incrementCount + 1
+                }
+
+            case 'remove':
+                return {
+                    ...state,
+                    todos: todos.filter(todo => {
+                        return todo.id !== payload
+                    })
+                }
+            case 'toggle':
+                return {
+                    ...state,
+                    todos: todos.map(todo => {
+                        return todo.id === payload ? {
+                            ...todo,
+                            complete: !todo.complete
+                        } : todo
+                    })
+                }
         }
-    }, [])
+        return state;
+    }
+
+    const dispatch = useCallback((action) => {
+        const state = {
+            todos,
+            incrementCount
+        }
+        console.log(setTodos)
+        const setters = {
+            todos: setTodos,
+            incrementCount: setIncrementCount
+        }
+
+        // console.log(setters.todos)
+        const newState = reducer(state, action);
+        console.log(newState)
+
+        for (let key in newState) {
+            setters[key](newState[key])
+        }
+
+    }, [todos, incrementCount])
 
     useEffect(() => {
         const todos = JSON.parse(localStorage.getItem(LS_KEY));
