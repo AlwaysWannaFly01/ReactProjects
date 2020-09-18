@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+<h1>Hello Pwa</h1>
 <script>
-    // navigator.serviceWorker.register('./sw.js', {scope: '/'})
-    //     .then(registration => {
-    //         console.log(registration)
-    //     }, error => {
-    //         console.log(error)
-    //     })
+    navigator.serviceWorker.register('./sw.js', {scope: '/'})
+        .then(registration => {
+            console.log(registration)
+        }, error => {
+            console.log(error)
+        })
 </script>
 <script>
     // const xhr = new XMLHttpRequest();
@@ -27,12 +28,11 @@
     // xhr.open('GET', '/userinfo.json', true);
     // xhr.send(null)
 
-    fetch('/userinfo.json')
-        .then(res =>
-            res.json()
-        )
-        .then(info => console.log(info))
-
+    // fetch('/userinfo.json')
+    //     .then(res =>
+    //         res.json()
+    //     )
+    //     .then(info => console.log(info))
 </script>
 </body>
 </html>
