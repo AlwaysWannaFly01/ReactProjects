@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Person{
+        constructor(name,age) {
+            this.name = name;
+            this.age = age
+        }
+        study(){
+            //study方法放在了哪里? --类的原型对象上,供实例使用
+            //通过Person实例调用study时,study中的this就是Person实例
+            //类中所有定义的方法,在局部都开启了严格模式,因此
+            console.log(this)
+        }
+    }
+
+    //实例调用
+    const p1 = new Person('tom', 1)
+    p1.study();
+
+    //直接调用,this的值为undefined
+    const x = p1.study;
+    x();
+
+
+
+    function demo(){
+        'use strict'
+        console.log(this); //开启严格模式,this为undefined;否正为window
+    }
+    function demo2(){
+        console.log(this); //开启严格模式,this为undefined;否正为window
+    }
+    demo();
+    demo2();
+
+</script>
+</body>
+</html>
