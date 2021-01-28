@@ -13,7 +13,9 @@
 
     //1.创建类式组件
     class Weather extends React.Component {
+        //构造器调用几次? -- 1次
         constructor(props) {
+            console.log('constructor')
             super(props);
             //初始化状态
             this.state = {
@@ -23,17 +25,20 @@
             this.changeWeather = this.changeWeather.bind(this);
         }
 
+        //changeWeather调用几次? -- 点几次调几次
         changeWeather() {
             //changeWeather放在哪里? -- Weather的原型对象上,供实例使用
             //由于changeWeather是作为onClick的回调,所以不是通过实例调用的,是直接调用
             //类中的方法默认开启了局部的严格模式,所以changeWeather中的this为undefined
-            console.log(this)
-            // this.setState({
-            //     isHot: !this.state.isHot
-            // })
+            console.log(this);
+            this.setState({
+                isHot: !this.state.isHot
+            })
         }
 
+        //render调用几次? -- 1 + n 次 ,n 是状态更新的次数
         render() {
+            console.log('render')
             const {isHot} = this.state;
             return (
                 <h1 id="title" onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
