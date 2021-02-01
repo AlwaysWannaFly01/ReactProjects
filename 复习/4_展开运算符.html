@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    let arr = [1, 2, 3, 4];
+    let arr2 = [5, 6, 7, 8, 9]
+    console.log(...arr)
+    console.log(...arr, ...arr2)
+
+    //在函数中使用
+    function sum(...numbers) {
+        console.log(numbers)
+        return numbers.reduce((previousValue, currentValue) => {
+            return previousValue + currentValue;
+        })
+    }
+
+    console.log(sum(1, 2, 3, 4, 5))
+
+    //构造字面量对象时使用展开语法
+    let person = {
+        name: 'tom',
+        age: 18
+    }
+    let person2 = {...person};
+    // console.log(...person)//报错,展开运算符不能展开对象
+    person.name = 'zzz'
+    console.log(person.name)
+    console.log(person2.name)
+
+    //合并
+    let person3 = {...person, name: 'jack', address: 'asd'}
+    console.log(person3)
+</script>
+</body>
+</html>
