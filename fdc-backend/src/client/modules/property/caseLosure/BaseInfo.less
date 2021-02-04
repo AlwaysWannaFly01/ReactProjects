@@ -1,0 +1,295 @@
+.delProject {
+  color: red !important;
+
+  a {
+    color: red;
+  }
+}
+
+.usageSelect {
+  max-height: 200px;
+  overflow: auto;
+}
+
+.breadContainer {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  user-select: none;
+  background: #f3f4f5;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+.container {
+  padding: 40px 24px 24px;
+}
+.drawContainer {
+  padding: 40px 0px 24px;
+}
+
+.limitProjectName {
+  width: 180px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.limitAreaName {
+  width: 90px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.limitAddress {
+  width: 192px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.limitProjectAlias {
+  width: 100px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.limitOwership {
+  width: 126px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// 城市 || 行政区 显示5个中文
+.limitCityName {
+  width: 82px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.btnCont {
+  width: 100%;
+  height: 56px;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid #e8e8e8;
+  z-index: 9;
+  background: #fff;
+  padding-top: 10px;
+}
+
+.isRequired {
+  // margin-right: 8px;
+  height: 50px;
+}
+
+.isRequired:before {
+  display: inline-block;
+  margin-right: 4px;
+  content: '*';
+  font-family: SimSun;
+  line-height: 1;
+  font-size: 14px;
+  color: #f5222d;
+}
+
+
+.searchMap {
+  position: absolute;
+  top: 9px;
+  right: 120px;
+  z-index: 2;
+}
+
+.mySearchList{
+  position: absolute;
+  top: 44px;
+  right: 135px;
+  z-index: 2;
+  width: 184px;
+  background-color: #fff;
+  height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: none;
+  ul{
+    margin-bottom: 0;
+    padding: 0;
+    li{
+      list-style: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    li:first-child{
+      padding-top: 0;
+    }
+    li:hover{
+      background-color: #f8f8f8;
+    }
+  }
+}
+.mySearchList .on{
+  display: block;
+}
+
+.searchInput {
+  border: 1px solid #d9d9d9 !important;
+  width: 184px !important;
+  padding: 5px 30px 5px 10px;
+  border-radius: 4px;
+}
+.searchDownLi {
+  border: 1px solid #c0c0c0;
+  width: 150px;
+  height: auto;
+  //display: none;
+}
+.searchIcon {
+  position: relative;
+  right: 27px;
+  font-size: 25px;
+  top: 3px;
+   cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+.blockS {
+  float: right;
+  background: #33cabb;
+  width: 33px;
+  height: 33px;
+  text-align: center;
+  line-height: 33px;
+  color: white;
+  margin-left: -14px;
+  cursor: pointer;
+}
+
+:global {
+  .ant-message-warning .anticon {
+    color: #33cabb;
+  }
+}
+
+.drawDrawer {
+  :global {
+    .ant-message-warning .anticon {
+      color: #33cabb;
+    }
+    .ant-drawer-content {
+      height: auto !important;
+    }
+    .ant-table-content {
+      height: 444px;
+    }
+    .ant-drawer-content-wrapper {
+      width: 450px !important;
+      top: 150px;
+      height: auto !important;
+    }
+    .ant-drawer-body {
+      padding: 0px !important;
+    }
+
+    .ant-drawer-content-wrapper {
+      margin-left: 0px !important;
+    }
+    .ant-table-thead > tr:first-child > th:hover {
+      background: rgba(0, 0, 0, 0.15);
+    }
+    .ant-table-filter-dropdown .ant-dropdown-menu-without-submenu {
+      max-height: 390px !important;
+    }
+  }
+}
+
+.doubleLeft {
+  width: 450px;
+  height: 30px;
+  background-color: #e4e4e4;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  position: absolute;
+}
+.doubleRight {
+  width: 20px;
+  height: 450px;
+  background-color: #e4e4e4;
+  text-align: center;
+  line-height: 500px;
+  cursor: pointer;
+  position: absolute;
+  top: 100px;
+  z-index: 1001;
+}
+
+.doubleLeft:hover,
+.doubleRight:hover {
+  background-color: #7d7d7d;
+}
+
+.importBtn {
+  float: right;
+  top: 10px;
+  right: 10px;
+}
+.importBtn:hover {
+  opacity: 0.8;
+}
+// S 多边形信息窗口
+.areaDrap {
+  width: 300px;
+  height: 150px;
+  border: 2px solid #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 0 18px #f00;
+}
+
+.drapType {
+  padding: 16px 20px;
+}
+
+.drapName {
+  border-bottom: 2px solid #f2f2f2;
+}
+
+// E 多边形信息窗口
+
+.defineTable {
+  table {
+    tr {
+      th,
+      td {
+        padding: 10px;
+      }
+    }
+  }
+}
+.drawTable {
+  table {
+    background-color: white;
+    tr {
+      th,
+      td {
+        padding: 10px;
+      }
+    }
+  }
+}
+.popupTitle {
+  padding-top: 10px;
+}

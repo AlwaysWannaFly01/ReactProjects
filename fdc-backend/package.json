@@ -1,0 +1,227 @@
+{
+  "name": "ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run cleanDev && node scripts/start.pre",
+    "debug": "BABEL_ENV=development babel-node --inspect scripts/start.pre",
+    "build": "SET \"NODE_ENV=production\" && SET \"BABEL_ENV=production\" && node scripts/build.pre",
+    "server": "cd build && pm2 start server.js",
+    "stop": "cd build && pm2 stop server.js",
+    "cleanDev": "rimraf ./devBuild/**/*"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "antd": "^3.24.3",
+    "autoprefixer": "^7.2.5",
+    "axios": "^0.20.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-extensible-destructuring": "^4.1.0",
+    "babel-plugin-import": "^1.6.2",
+    "babel-plugin-webpack-alias": "^2.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react-app": "^3.1.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chalk": "^2.3.0",
+    "chokidar": "^1.7.0",
+    "classnames": "^2.2.5",
+    "cookie": "^0.3.1",
+    "css-loader": "^0.28.7",
+    "css-modules-require-hook": "^4.2.2",
+    "detect-node": "^2.0.3",
+    "downloadjs": "^1.4.7",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-react-app": "^2.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0",
+    "extensible-runtime": "^4.1.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "fs-extra": "^4.0.2",
+    "highcharts": "^6.0.3",
+    "html-webpack-plugin": "^2.30.1",
+    "immutable": "^3.8.2",
+    "js-cookie": "^2.2.0",
+    "koa": "^2.3.0",
+    "koa-compress": "^2.0.0",
+    "koa-convert": "^1.2.0",
+    "koa-proxies": "^0.6.2",
+    "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.19.1",
+    "nunjucks": "^3.0.1",
+    "object-assign": "^4.1.1",
+    "pm2": "^2.9.1",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-less": "^1.1.2",
+    "postcss-loader": "^2.0.8",
+    "pretty": "^2.0.0",
+    "promise": "^8.0.1",
+    "prop-types": "^15.6.0",
+    "qs": "^6.5.1",
+    "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dev-utils": "^4.2.1",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.2.0",
+    "request": "^2.83.0",
+    "reselect": "^3.0.1",
+    "rxjs": "^5.5.2",
+    "sockjs": "^0.3.19",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ],
+    "rules": {
+      " guard-for-in": [
+        0
+      ],
+      " no-restricted-syntax": [
+        0
+      ],
+      "consistent-return": [
+        0
+      ],
+      "no-unreachable": [
+        0
+      ],
+      "react/no-deprecated": [
+        0
+      ],
+      "react/no-unused-state": [
+        0
+      ],
+      "prefer-const": [
+        0
+      ],
+      "no-restricted-syntax": [
+        0
+      ],
+      "guard-for-in": [
+        0
+      ],
+      "arrow-body-style": [
+        0
+      ],
+      "no-trailing-spaces": [
+        0
+      ],
+      "object-shorthand": [
+        0
+      ],
+      "jsx-a11y/click-events-have-key-events": [
+        0
+      ],
+      "jsx-a11y/anchor-is-valid": [
+        0
+      ],
+      "prefer-destructuring": [
+        0
+      ],
+      "class-methods-use-this": [
+        0
+      ],
+      "no-shadow": [
+        0
+      ],
+      "no-unused-vars": [
+        0
+      ],
+      "no-debugger": [
+        0
+      ],
+      "comma-dangle": [
+        0
+      ],
+      "no-param-reassign": [
+        0
+      ],
+      "function-paren-newline": [
+        0
+      ],
+      "arrow-parens": [
+        2,
+        "as-needed"
+      ],
+      "semi": [
+        2,
+        "never"
+      ],
+      "no-console": [
+        0
+      ],
+      "import/no-extraneous-dependencies": [
+        0
+      ],
+      "import/no-unresolved": [
+        0
+      ],
+      "import/prefer-default-export": [
+        0
+      ],
+      "import/extensions": [
+        0
+      ],
+      "react/jsx-filename-extension": [
+        0
+      ],
+      "react/jsx-first-prop-new-line": [
+        0
+      ],
+      "react/jsx-max-props-per-line": [
+        0
+      ],
+      "react/jsx-closing-bracket-location": [
+        0
+      ],
+      "react/forbid-prop-types": [
+        0
+      ],
+      "react/prefer-stateless-function": [
+        0
+      ],
+      "react/require-default-props": [
+        0
+      ],
+      "jsx-a11y/no-static-element-interactions": [
+        0
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "/node_modules/*",
+    "/src/client/components/iconfont/font.js"
+  ],
+  "devDependencies": {
+    "js-md5": "^0.7.3",
+    "rimraf": "^2.7.1"
+  }
+}

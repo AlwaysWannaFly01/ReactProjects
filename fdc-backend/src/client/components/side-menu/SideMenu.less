@@ -1,0 +1,75 @@
+.wrap {
+  height: 100%;
+  &.collapsed {
+    .logo {
+      color: transparent;
+      background-position: center;
+      padding: 0;
+      width: 100%;
+    }
+    .menu {
+      overflow: initial;
+    }
+  }
+}
+
+.logo {
+  height: 64px;
+  line-height: 64px;
+  background-color: #3f4a59;
+  border-bottom: 1px solid #333b47;
+  font-size: 16px;
+  color: #fff;
+  padding-left: 66px;
+  background-image: url(assets/logo_fxt.png);
+  background-repeat: no-repeat;
+  background-position: 26px center;
+}
+
+.menu {
+  position: absolute;
+  // top: 64px;
+  top: 0;
+  bottom: 30px;
+  width: 100%;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  :global {
+    .iconfont {
+      // margin-left: 2px;
+      margin-right: 8px;
+    }
+    .ant-menu-item {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.collapse {
+  color: #fff !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s;
+  border-radius: 0;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  &:active > * {
+    position: relative;
+    left: 1px;
+    top: 1px;
+  }
+}

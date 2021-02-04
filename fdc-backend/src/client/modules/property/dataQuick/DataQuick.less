@@ -1,0 +1,134 @@
+.breadContainer {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  user-select: none;
+  background: #f3f4f5;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+.rowTitle{
+  display: inline-block;
+  padding-left: 10px;
+  border-left: 4px solid #4dcaba;
+  font-weight: bold;
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+:global(.ant-spin) {
+  position: fixed !important;
+  height: 890px;
+  overflow: hidden;
+  min-height: 890px !important;
+  //overflow: auto;
+  //min-height: 1680px;
+}
+.mapQuikly{
+  height:100%;
+  :global(.ant-spin) {
+    position: absolute !important;
+    //overflow: auto;
+    //min-height: 1680px;
+  }
+}
+
+//.exitCom{
+//  color: red;
+//}
+.exitCom:hover{
+  background: red;
+  color: #FFFFFF;
+}
+
+.container {
+  padding: 48px 24px 16px;
+  height: 100%;
+  overflow: auto;
+}
+
+.viSpan{
+  color: #FF9800;
+}
+
+.buildSpan{
+  color: #FF9800;
+  position: absolute;
+  top: 37px;
+  right: 131px;
+}
+
+.linkIcon{
+  position: absolute;
+  right: -28px;
+  top: -12px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #21a39a;
+}
+
+.dataIndexSpan{
+  color: #21a39a;
+}
+
+.aboutProjectName{
+  margin-left: 120px;
+  //font-weight: bold;
+  padding: 10px;
+}
+
+:global(.ant-collapse) {
+  background: none !important;
+  border: none !important;
+}
+
+.limitProjectName {
+  width: 170px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.limitAreaName {
+  width: 90px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.limitOwership {
+  width: 126px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.isRequired {
+  margin-right: 8px;
+  height: 50px;
+}
+
+.isRequired:before {
+  display: inline-block;
+  margin-right: 4px;
+  content: '*';
+  font-family: SimSun;
+  line-height: 1;
+  font-size: 14px;
+  color: #f5222d;
+}
+
+.defineTable{
+  table{
+    tr{
+      th,td{
+        padding: 10px;
+      }
+    }
+  }
+}

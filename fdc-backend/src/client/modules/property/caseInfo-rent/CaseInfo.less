@@ -1,0 +1,63 @@
+.breadContainer {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  user-select: none;
+  background: #f3f4f5;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+.container {
+  padding: 48px 24px 16px;
+}
+
+.limitProjectName {
+  width: 192px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.limitAreaName {
+  width: 90px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.limitOwership {
+  width: 126px;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.isRequired {
+  margin-right: 8px;
+  height: 50px;
+}
+
+.isRequired:before {
+  display: inline-block;
+  margin-right: 4px;
+  content: '*';
+  font-family: SimSun;
+  line-height: 1;
+  font-size: 14px;
+  color: #f5222d;
+}
+
+.defineTable{
+  table{
+    tr{
+      th,td{
+        padding: 10px;
+      }
+    }
+  }
+}

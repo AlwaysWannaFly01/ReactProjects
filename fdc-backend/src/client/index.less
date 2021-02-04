@@ -1,0 +1,371 @@
+:global {
+  .filter-block {
+    padding: 16px 0 0;
+  }
+
+  @darkBg: rgba(255, 255, 255, 0.1);
+  @whiteBg: rgba(0, 0, 0, 0.1);
+  .initial-loading-hide {
+    opacity: 0;
+  }
+  .initial-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    transition: opacity 1s;
+  }
+  .initial-loading-left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #404959;
+  }
+  .initial-loading-logo {
+    height: 64px;
+    border-bottom: 1px solid #333b47;
+    position: relative;
+    padding-top: 14px;
+    &:before {
+      content: '';
+      width: 34px;
+      height: 36px;
+      margin-left: 24px;
+      background-color: @darkBg;
+      display: inline-block;
+    }
+    &:after {
+      content: '';
+      display: block;
+      width: 151px;
+      height: 36px;
+      background-color: @darkBg;
+      display: inline-block;
+      margin-left: 6px;
+    }
+  }
+  .initial-loading-menus {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    li {
+      height: 42px;
+      padding-top: 9px;
+      &:before {
+        content: '';
+        display: block;
+        width: 192px;
+        height: 24px;
+        background-color: @darkBg;
+        margin-left: 24px;
+      }
+    }
+  }
+  .initial-loading-right {
+    position: fixed;
+    left: 250px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #f3f4f5;
+  }
+  .initial-user-block {
+    height: 64px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  }
+  .initial-user {
+    float: right;
+    margin-top: 12px;
+    margin-right: 32px;
+    .initial-user-avatar {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      vertical-align: middle;
+      background-color: @whiteBg;
+      border-radius: 20px;
+    }
+    .initial-username {
+      vertical-align: middle;
+      display: inline-block;
+      margin-left: 5px;
+      width: 52px;
+      height: 18px;
+      background-color: @whiteBg;
+    }
+  }
+  .initial-breadcrumb {
+    height: 43px;
+    height: 43px;
+    padding-top: 13px;
+    padding-left: 24px;
+    &:before {
+      content: '';
+      display: block;
+      height: 15px;
+      width: 200px;
+      background-color: @whiteBg;
+    }
+  }
+  .initial-content {
+    position: absolute;
+    top: 106px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+  }
+  .initial-svg {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .Windows {
+    ::-webkit-scrollbar {
+      // height: 16px;
+      overflow: visible;
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-button {
+      height: 0;
+      width: 0;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-clip: padding-box;
+      border: solid transparent;
+      border-width: 0 0 0 4px;
+    }
+
+    ::-webkit-scrollbar-track:horizontal {
+      border-width: 4px 0 0;
+    }
+
+    ::-webkit-scrollbar-track:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.1);
+    }
+
+    ::-webkit-scrollbar-track:horizontal:hover {
+      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    ::-webkit-scrollbar-track:active {
+      background-color: rgba(0, 0, 0, 0.05);
+      box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.14),
+        inset -1px 0 0 rgba(0, 0, 0, 0.07);
+    }
+
+    ::-webkit-scrollbar-track:horizontal:active {
+      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.14),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      background-clip: padding-box;
+      border: solid transparent;
+      border-width: 1px 1px 1px 6px;
+      min-height: 28px;
+      padding: 100px 0 0;
+      box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+    }
+
+    ::-webkit-scrollbar-thumb:horizontal {
+      border-width: 6px 1px 1px;
+      padding: 0 0 0 100px;
+      box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1),
+        inset -1px 0 0 rgba(0, 0, 0, 0.07);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+      background-color: rgba(0, 0, 0, 0.5);
+      box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.35);
+    }
+
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
+    body::-webkit-scrollbar-track-piece {
+      background-clip: padding-box;
+      background-color: #f5f5f5;
+      border: solid #fff;
+      border-width: 0 0 0 3px;
+      box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.14),
+        inset -1px 0 0 rgba(0, 0, 0, 0.07);
+    }
+
+    body::-webkit-scrollbar-track-piece:horizontal {
+      border-width: 3px 0 0;
+      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.14),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+    }
+
+    body::-webkit-scrollbar-thumb {
+      border-width: 1px 1px 1px 5px;
+    }
+
+    body::-webkit-scrollbar-thumb:horizontal {
+      border-width: 5px 1px 1px;
+    }
+
+    body::-webkit-scrollbar-corner {
+      background-clip: padding-box;
+      background-color: #f5f5f5;
+      border: solid #fff;
+      border-width: 3px 0 0 3px;
+      box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.14);
+    }
+  }
+
+  .ant-table-pagination {
+    width: 100%;
+    text-align: right;
+  }
+
+  .ant-pagination-total-text {
+    float: left;
+    font-size: 14px;
+  }
+
+  // treeNode 选中时不显示背景色
+  .ant-tree-node-selected {
+    background-color: #fff;
+  }
+
+  // 去除百度地图左下角Logo
+  .anchorBL {
+    display: none;
+  }
+
+  .defineTable {
+    table {
+      tr {
+        th,
+        td {
+          padding: 10px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  // 房号详情刷新后，表头出现的问题 // 楼盘均价---基准房价，楼盘均价---只看均价案例，刷新后，表头出现的问题
+  .ant-table-fixed-header .ant-table-scroll .ant-table-header {
+    //overflow: hidden;
+    // margin-bottom: 23px !important;
+    // margin-top: -23px !important;
+    padding-bottom: 0 !important;
+    //margin-bottom: -20px !important;
+  }
+
+  #drawmap svg {
+    z-index: 999999;
+  }
+  .preview-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .icon-icon-test31{
+      position: fixed;
+      top: 60px;
+      right: 60px;
+      color: #ffffff;
+      transform:rotate(45deg);
+      font-size: 40px;
+      margin-right: 0;
+    }
+    .img-container{
+      width: 1px;
+      height: 1px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      .image{
+        position: absolute;
+        cursor: pointer;
+      }
+    }
+    .origin-image{
+      position: relative;
+      z-index: -1;
+      visibility: hidden;
+    }
+    .operate-con{
+      position: fixed;
+      bottom:10%;
+      left:0;
+      right: 0;
+      margin: 0 auto;
+      width: 300px;
+      height: 70px;
+      background-color: #37474f;
+      border-radius: 100px;
+      opacity: 0.8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 55px;
+      box-sizing: border-box;
+      .operate-btn{
+        width: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        .iconfont{
+          color: #ffffff;
+          font-size: 15px;
+          margin-right: 0;
+        }
+        span{
+          color: white;
+          font-size: 12px;
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+  .preview-wrapper.show{
+    display: flex;
+  }
+  .preview-wrapper.hide{
+    display: none;
+  }
+  // antdesign气泡卡片的箭头不见了
+  .ant-popover-arrow {
+    background-color: white !important;
+  }
+  .tangram-suggestion-main{
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #fff;
+  }
+}
+

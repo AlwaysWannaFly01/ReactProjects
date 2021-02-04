@@ -1,0 +1,50 @@
+.leftBlock {
+  width: 250px;
+  position: fixed;
+  // top: 0;
+  top: 63px;
+  left: 0;
+  bottom: 0;
+  background-color: #404959;
+  z-index: 1;
+  user-select: none;
+}
+
+.rightBlock {
+  position: fixed;
+  left: 250px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f3f4f5;
+}
+
+.breadcrumb {
+  display: flex;
+  height: 41px;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  user-select: none;
+}
+
+.content {
+  position: absolute;
+  // top: 104px;
+  top: 63px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  // padding: 16px 24px;
+  overflow-y: auto;
+}
+
+.collapsed {
+  .leftBlock {
+    width: 80px;
+  }
+  .rightBlock {
+    left: 80px;
+  }
+}

@@ -1,0 +1,76 @@
+.breadContainer {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  user-select: none;
+  background: #f3f4f5;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+.container {
+  padding: 40px 24px 16px;
+}
+
+.regionBg {
+  background: #f2f2f2;
+  // border: 1px solid red;
+  margin: 10px 20px;
+}
+
+.white {
+  background: #fff;
+  padding: 6px 0;
+}
+.white:nth-last-of-type(1) {
+  padding-bottom: 12px;
+}
+.formBoxWy {
+  margin: 20px 0;
+}
+.regionWy {
+  margin: 20px;
+}
+.parentBoxWy {
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  padding-bottom: 20px;
+}
+.middleBoxWy {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 20px;
+}
+.cityTitleWy {
+  font-size: 16px;
+  font-weight: bold;
+}
+.regionAloneWy {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.noCityWy {
+  padding: 10px;
+}
+.differentCityWy {
+  padding: 0 45px 10px 45px;
+  border-bottom: 1px solid rgba(191, 191, 191, 0.5);
+}
+.differentCityWy:nth-last-of-type(1) {
+  border-bottom: none;
+}
+:global {
+  .DatasourceManage__parentBoxWy___3lGtD .ant-list-pagination {
+    padding: 0 20px;
+  }
+}
+// 兼容火狐
+@-moz-document url-prefix() {
+  /*只在firefox起作用*/
+  .tableOver {
+    width: 870px;
+    overflow: scroll;
+  }
+}

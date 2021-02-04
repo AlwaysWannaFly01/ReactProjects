@@ -1,0 +1,32 @@
+.contextMenu {
+  position: fixed;
+  background: white;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border:1px solid #ccc;
+  box-shadow: 2px 2px #999999;
+  .contextMenuOption {
+    padding: 3px 30px 3px 20px;
+    min-width: 160px;
+    cursor: default;
+    font-size: 12px;
+    a{
+      color: block!important;
+    }
+    &:hover {
+      background: #E2E2E2;
+    }
+    
+    &__disabled {
+      color: #999999;
+      pointer-events: none;
+    }
+  }
+  
+  &--separator {
+    width: 100%;
+    height: 1px;
+    background: #CCCCCC;
+    margin: 0 0 0 0;
+  }
+}
