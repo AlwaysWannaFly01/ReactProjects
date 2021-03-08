@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3_回调ref中回调执行次数的问题</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Demo extends React.Component{
+        
+        state = {
+            isHot:true
+        }    
+        
+        showInfo = () => {
+           const {input1} = this
+           alert(input1.value) 
+        }   
+
+        changeWeather = ()=> {
+            const {isHot} = this.state
+            this.setState({
+                isHot:!isHot
+            })
+        }
+        saveInput = (c)=>{
+            this.input1 = c;
+            console.log('@',c)
+        }
+        render(){
+            const {isHot} = this.state
+            return (
+                <div>
+                    <h2>今天天气很{isHot?'炎热':'凉爽'}</h2>
+                    {/*<input ref={c=>{this.input1 = c ;console.log('@',c)}} type="text" placeholder="点击按钮提示数据"/>&nbsp;*/}
+                    <input type="text" ref={this.saveInput}/><br/>
+                    <button onClick={this.showInfo}>点我提示输入的数据</button>
+                    <button onClick={this.changeWeather}>点我切换天气</button>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Demo />, document.getElementById('test'))
+
+</script>
+</body>
+
+</html>
