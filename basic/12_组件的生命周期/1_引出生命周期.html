@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>引出生命周期</title>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        class Life extends React.Component {
+            state = {
+                opacity: 1,
+            };
+
+            death = () => {
+                // clearInterval(this.timer)
+                ReactDOM.unmountComponentAtNode(
+                    document.getElementById('test')
+                );
+            };
+
+            //组件挂在完毕
+            componentDidMount() {
+                console.log('@');
+                this.timer = setInterval(() => {
+                    let { opacity } = this.state;
+                    opacity -= 0.1;
+                    if (opacity <= 0) opacity = 1;
+                    this.setState({
+                        opacity,
+                    });
+                }, 200);
+            }
+
+            //组件将要被卸载
+            componentWillUnmount() {
+                clearInterval(this.timer) 
+            }
+
+            //初始化和状态更新之后
+            render() {
+                console.log('render');
+                return (
+                    <div>
+                        <p style={{ opacity: this.state.opacity }}>
+                            是对对方的方式的风格
+                            </p>
+                        <button onClick={this.death}>销毁</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<Life />, document.getElementById('test'));
+    </script>
+</body>
+
+</html>
