@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_key的作用</title>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/17.0.1/react.development.js"></script>
+    <script type="text/javascript" src="../js/17.0.1/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/17.0.1/babel.min.js"></script>
+    <script type="text/babel">
+        class Person extends React.Component {
+            state = {
+                persons: [
+                    {
+                        id: 1, name: '张三', age: 19
+                    },
+                    {
+                        id: 2, name: '李四', age: 22
+                    }
+                ]
+            }
+            add = () => {
+                const { persons } = this.state
+                const a = {
+                    id: persons.length + 1, name: '小王', age: 34
+                }
+                this.setState({
+                    persons: [a, ...persons]
+                })
+            }
+            render() {
+                return (
+                    <div>
+                        <h2>展示人员信息</h2>
+                        <button onClick={this.add}>添加一个小王</button>
+                        <h3>使用index值作为key</h3>
+                        <ul>
+                            {
+                                this.state.persons.map((item, index) => {
+                                    return <li key={index}> {item.name} --- {item.age} <input type="text"/></li>
+                                })
+                            }
+                        </ul>
+                        <hr />
+                        <button onClick={this.add}>添加一个小王</button>
+                        <h3>使用id值作为key</h3>
+                        <ul>
+                            {
+                                this.state.persons.map((item, index) => {
+                                    return <li key={item.id}> {item.name} --- {item.age}<input type="text"/></li>
+                                })
+                            }
+                        </ul>
+                    </div>
+
+                )
+
+            }
+        }
+
+        ReactDOM.render(<Person />, document.getElementById('test'))
+    </script>
+</body>
+
+</html>
