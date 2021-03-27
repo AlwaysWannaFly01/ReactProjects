@@ -1,10 +1,11 @@
 import React, {Component} from "react";
+import {Button}  from "antd";
 
 class Form extends Component{
     render() {
         return (
             <div>
-                123
+                <Button type="primary">123</Button>
             </div>
         )
     }
