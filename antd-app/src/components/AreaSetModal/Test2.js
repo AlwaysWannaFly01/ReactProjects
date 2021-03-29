@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import { Form, Input, Button, Row, Col } from 'antd'
-import { compose } from 'redux'
+import React, {Component} from 'react'
+import {Form, Input, Button, Row, Col} from 'antd'
+import {compose} from 'redux'
+
 class Test2 extends Component {
     constructor(props) {
         super(props)
@@ -31,34 +32,42 @@ class Test2 extends Component {
     }
 
     collectManager = (param) => {
-        const { getFieldValue, resetFields } = this.props.form
+        const {getFieldValue, resetFields} = this.props.form
         const managerList = []
-        const { initData } = this.state
-        initData.forEach((item) => {
-            if (param && param === item.id) {
-                return true
-            }
-
-            let areaDown = getFieldValue(`areaDown${item.id}`)
-            let areaUp = getFieldValue(`areaUp${item.id}`)
-            // console.log('collectManager@areaDown', areaDown)
-            // console.log('collectManager@areaUp', areaUp)
-            // debugger
-            console.log(+areaDown)
-            console.log(+areaUp)
-            // if (+areaUp> +areaDown) {
-				// resetFields()
-            // }
-            resetFields([`areaDown${item.id}`, `areaUp${item.id}`])
-			// resetFields()
-            managerList.push({
-                areaDown,
-                areaUp,
-                id: item.id
-                    ? item.id
-                    : `${Date.now()}-${Math.floor(Math.random(0, 1) * 10000)}`,
+        const {initData} = this.state
+        if (param) {
+            initData.forEach((item) => {
+                if (param && param === item.id) {
+                    return true
+                }
+                let areaDown = getFieldValue(`areaDown${item.id}`)
+                let areaUp = getFieldValue(`areaUp${item.id}`)
+                if (+areaDown >= +areaUp) {
+                    return true
+                }
+                resetFields([`areaDown${item.id}`, `areaUp${item.id}`])
+                managerList.push({
+                    areaDown,
+                    areaUp,
+                    id: item.id
+                        ? item.id
+                        : `${Date.now()}-${Math.floor(Math.random(0, 1) * 10000)}`,
+                })
             })
-        })
+        } else {
+            initData.forEach((item) => {
+                let areaDown = getFieldValue(`areaDown${item.id}`)
+                let areaUp = getFieldValue(`areaUp${item.id}`)
+                resetFields([`areaDown${item.id}`, `areaUp${item.id}`])
+                managerList.push({
+                    areaDown,
+                    areaUp,
+                    id: item.id
+                        ? item.id
+                        : `${Date.now()}-${Math.floor(Math.random(0, 1) * 10000)}`,
+                })
+            })
+        }
 
         return managerList
     }
@@ -79,69 +88,47 @@ class Test2 extends Component {
         managerList.splice(thisIndex + 1, 0, recom)
         console.log(managerList)
 
-        this.setState({ initData: managerList })
+        this.setState({initData: managerList})
     }
 
     delManager = (el) => {
         console.log('删除的那一项el', el)
         let managerList = this.collectManager()
+        debugger
+        console.log(managerList)
+        let Arr = managerList
         let thisIndex = managerList.findIndex((item) => {
             return item.id === el.id
         })
-
-        //删除指定index的元素
-        managerList.splice(thisIndex, 1)
-        console.log(managerList)
-
-        this.setState({ initData: managerList })
+        Arr[thisIndex + 1]['areaDown'] = Arr[thisIndex - 1]['areaUp']
+        Arr.splice(thisIndex, 1)
+        this.setState({initData: Arr})
     }
     handleChange = (el) => {
         console.log('handleChange@el', el)
-
-        // const {getFieldValue, resetFields} = this.props.form;
-        // const _a = `areaDown${el.id}`
-        // const _b = `areaUp${el.id}`
-        console.log(this.props)
-        // setTimeout(() => {
-        //     this.props.form.validateFields((err, values) => {
-        //         if (err) {
-        //             return;
-        //         } else {
-        //             console.log(values)
-        //             let areaDown = values[_a]
-        //             let areaUp = values[_b]
-        //             let Obj ={areaDown, areaUp ,id: `${Date.now()}-${Math.floor(Math.random(0, 1) * 10000)}`}
-        //             let {initData} = this.state;
-        //             let thisIndex = initData.findIndex((item) => {
-        //                 return item.id === el.id;
-        //             });
-        //             let ArrNew = initData
-        //             ArrNew[thisIndex] = Obj
-        //             // this.$nextTick(() => {
-        //             //     this.props.form.setFieldsValue({
-        //             //         initData:ArrNew
-        //             //     })
-        //             // })
-        //         }
-        //     });
-        // }, 0);
     }
 
     handleSubmit = (e) => {
         if (e) e.preventDefault()
-        this.props.form.validateFields((err, values) => {
+        let {initData} = this.state
+        let arr = []
+        //不校验最后一项
+        initData.forEach((item, index) => {
+            let s = [`areaDown${item.id}`, `areaUp${item.id}`]
+            if (index < initData.length - 1) {
+                arr.push(...s)
+            } else {
+                if (item.areaUp) {
+                    arr.push(...s)
+                }
+            }
+        })
+
+        this.props.form.validateFields(arr, (err, values) => {
             if (!err) {
                 // const {keys, names} = values;
                 console.log('Received values of form: ', values)
-                let { initData } = this.state
-                initData.forEach((item) => {
-                    item.areaDown = values[`areaDown${item.id}`]
-                    item.areaUp = values[`areaUp${item.id}`]
-                })
-                // console.log(initData);
-                this.setState({
-                    initData,
-                })
+                this.props.form.resetFields()
             }
         })
     }
@@ -153,7 +140,7 @@ class Test2 extends Component {
     _defineCallBack = () => {
         const values = this.props.form.getFieldsValue()
         console.log(values)
-        let { initData } = this.state
+        let {initData} = this.state
         console.log('_defineCallBack@initData', initData)
         initData.forEach((item) => {
             item.areaDown = values[`areaDown${item.id}`]
@@ -166,7 +153,7 @@ class Test2 extends Component {
 
     areaUpOnBlur = (el) => {
         console.log(el)
-        let { initData } = this.state
+        let {initData} = this.state
 
         initData.forEach((item, index) => {
             if (item.id === el.id) {
@@ -195,7 +182,7 @@ class Test2 extends Component {
     }
     areaDownOnBlur = (el) => {
         console.log(el)
-        let { initData } = this.state
+        let {initData} = this.state
 
         initData.forEach((item, index) => {
             if (item.id === el.id) {
@@ -216,19 +203,26 @@ class Test2 extends Component {
 
     handleValidateAreaDown = (rule, value, callback) => {
         let name = rule.field
+        console.log('handleValidateAreaDown@rule', rule)
+        console.log('handleValidateAreaDown@value', value)
+
         name = name.replace('areaDown', 'areaUp')
 
         let areaUp = this.props.form.getFieldValue(name)
         if (Number(value) >= Number(areaUp)) {
-            callback('面积段最小值不能大于等于最大值')
+            if(!value){
+                callback('面积段最小值不能为空')
+            }else{
+                callback('面积段最小值不能大于等于最大值')
+            }
         } else {
             callback()
         }
     }
 
     handleValidateAreaUp = (rule, value, callback) => {
-        // console.log('handleValidateAreaUp@rule', rule)
-        // console.log('handleValidateAreaUp@value', value)
+        console.log('handleValidateAreaUp@rule', rule)
+        console.log('handleValidateAreaUp@value', value)
 
         let name = rule.field
         name = name.replace('areaUp', 'areaDown')
@@ -243,24 +237,51 @@ class Test2 extends Component {
             callback()
         }
     }
+    areaUpOnFocus = (param) => {
+        console.log(param)
+        const {resetFields} = this.props.form
+        // resetFields()
+    }
+    areaDownOnFocus = (param) => {
+        console.log(param)
+        const {getFieldValue, resetFields} = this.props.form
+        resetFields()
+        if(!(param.areaDown || param.areaUp)){
+            // let {initData} = this.state
+            // this.collectManager()
+            // initData.forEach((item) => {
+            //     let areaDown = getFieldValue(`areaDown${item.id}`)
+            //     let areaUp = getFieldValue(`areaUp${item.id}`)
+            //     resetFields([`areaDown${item.id}`, `areaUp${item.id}`])
+            //     managerList.push({
+            //         areaDown,
+            //         areaUp,
+            //         id: item.id
+            //             ? item.id
+            //             : `${Date.now()}-${Math.floor(Math.random(0, 1) * 10000)}`,
+            //     })
+            // })
+            resetFields()
+        }
+    }
 
     render() {
-        const { getFieldDecorator } = this.props.form
-        let { initData } = this.state
+        const {getFieldDecorator} = this.props.form
+        let {initData} = this.state
         console.log('render@initData', initData)
         let managerComps = initData.map((el, index) => (
             <Row span={24} key={el.id}>
                 <Col span={8}>
                     <Form.Item
                         label="areaDown："
-                        labelCol={{ span: 10 }}
-                        wrapperCol={{ span: 12 }}>
+                        labelCol={{span: 10}}
+                        wrapperCol={{span: 12}}>
                         {getFieldDecorator(`areaDown${el.id}`, {
                             initialValue: el.areaDown,
                             validateTrigger: ['onBlur'],
                             rules: [
-                                { whitespace: true, required: true },
-                                { validator: this.handleValidateAreaDown },
+                                {whitespace: true, required: false},
+                                {validator: this.handleValidateAreaDown},
                             ],
                         })(
                             <Input
@@ -270,6 +291,7 @@ class Test2 extends Component {
                                     )
                                 }
                                 onBlur={() => this.areaDownOnBlur(el)}
+                                onFocus={() => this.areaDownOnFocus(el)}
                                 disabled={index === 0 && +el.areaDown === 0}
                             />
                         )}
@@ -278,14 +300,14 @@ class Test2 extends Component {
                 <Col span={8}>
                     <Form.Item
                         label="areaUp："
-                        labelCol={{ span: 8 }}
-                        wrapperCol={{ span: 12 }}>
+                        labelCol={{span: 8}}
+                        wrapperCol={{span: 12}}>
                         {getFieldDecorator(`areaUp${el.id}`, {
                             initialValue: el.areaUp,
                             validateTrigger: ['onBlur'],
                             rules: [
-                                { whitespace: true, required: false },
-                                { validator: index === initData.length ? this.handleValidateAreaUp:null },
+                                {whitespace: true, required: false},
+                                {validator: this.handleValidateAreaUp},
                             ],
                         })(
                             <Input
@@ -295,22 +317,23 @@ class Test2 extends Component {
                                     )
                                 }
                                 onBlur={() => this.areaUpOnBlur(el)}
+                                onFocus={() => this.areaUpOnFocus(el)}
                                 min={el.areaDown + 1}
                             />
                         )}
                     </Form.Item>
                 </Col>
-                <Col span={4} style={{ marginTop: 6 }}>
+                <Col span={4} style={{marginTop: 6}}>
                     {el.areaDown || el.areaUp ? (
-						el.areaUp !== Infinity?
-                        <Button
-                            shape="circle"
-                            size="small"
-                            icon="plus"
-                            type="primary"
-                            style={{ marginRight: 10 }}
-                            onClick={() => this.addManager(el)}
-                        />:null
+                        el.areaUp !== Infinity ?
+                            <Button
+                                shape="circle"
+                                size="small"
+                                icon="plus"
+                                type="primary"
+                                style={{marginRight: 10}}
+                                onClick={() => this.addManager(el)}
+                            /> : null
                     ) : null}
                     {((initData > 1 && index === 0) || index > 0) && (
                         <Button
@@ -332,4 +355,5 @@ class Test2 extends Component {
         )
     }
 }
+
 export default compose(Form.create())(Test2)
