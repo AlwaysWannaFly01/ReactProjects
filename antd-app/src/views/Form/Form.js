@@ -55,7 +55,8 @@ class Form extends Component {
         console.log("重新编排后的表单数据:", initData)
     }
     EnterCoordinate2 = () => {
-        const {initData} = this.child.state
+		this.child2.handleSubmit()
+        const {initData} = this.child2.state
         console.log("重新编排后的表单数据:", initData)
     }
     EnterCoordinate3 = () => {
@@ -91,7 +92,7 @@ class Form extends Component {
                     onCancel={this.closeCoordinate2}
                     onOk={() => this.EnterCoordinate2(true)}
                     cancelText='取消'>
-                    <Test2 onRef={ref => this.child = ref} defaultData={this.state.initData}></Test2>
+                    <Test2 onRef={ref => this.child2 = ref} defaultData={this.state.initData}></Test2>
                 </Modal>
                 <Modal
                     title="面积段配置"
