@@ -190,7 +190,7 @@ class Test2 extends Component {
         console.log('handleValidateAreaDown@value', value)
 
         name = name.replace('areaDown', 'areaUp')
-        const { getFieldValue, resetFields } = this.props.form
+        const { resetFields } = this.props.form
 
         let areaUp = this.props.form.getFieldValue(name)
 
@@ -246,7 +246,7 @@ class Test2 extends Component {
     }
     areaDownOnFocus = (param) => {
         console.log(param)
-        const { getFieldValue, resetFields } = this.props.form
+        const { resetFields } = this.props.form
         resetFields()
     }
 
