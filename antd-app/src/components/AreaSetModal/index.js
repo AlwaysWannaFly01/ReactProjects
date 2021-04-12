@@ -1,5 +1,5 @@
-import Test2 from './Test2'
+import AreaSetModal2 from './AreaSetModal2'
 
 export {
-    Test2,
+    AreaSetModal2,
 }

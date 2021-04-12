@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Form, Input, Button, Row, Col } from 'antd'
 import { compose } from 'redux'
 
-class Test2 extends Component {
+class AreaSetModal extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -358,4 +358,4 @@ class Test2 extends Component {
     }
 }
 
-export default compose(Form.create())(Test2)
+export default compose(Form.create())(AreaSetModal)
