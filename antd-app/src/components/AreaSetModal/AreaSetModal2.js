@@ -258,7 +258,7 @@ class AreaSetModal2 extends React.Component {
     console.log(this.props)
     let {initData, parentData} = this.state
 
-    // console.log('render@initData', initData)
+    // console.log('render@initData2', initData)
     // console.log('render@parentData', parentData)
     let managerComps = initData.map((el, index) => (
         <Row span={24} key={el.id}>
