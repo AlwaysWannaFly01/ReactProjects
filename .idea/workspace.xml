@@ -1,44 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c128bb3d-37a3-4b75-b7e2-b35313ef2f0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/src/components/F2Demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/src/components/F2Demo2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/src/components/Page1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/src/components/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/env.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/getHttpsConfig.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/jest/cssTransform.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/jest/fileTransform.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/modules.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/paths.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/pnpTs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/webpack.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/webpackDevServer.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/scripts/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/scripts/start.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/scripts/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/src/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/src/action.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/src/serviceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/yarn.lock" beforeDir="false" />
-    </list>
+    <list default="true" id="c128bb3d-37a3-4b75-b7e2-b35313ef2f0a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,8 +73,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.eject" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -127,11 +90,30 @@
       <option name="presentableId" value="Default" />
       <updated>1639706043035</updated>
       <workItem from="1639706044680" duration="6521000" />
-      <workItem from="1639713468876" duration="2058000" />
+      <workItem from="1639713468876" duration="2534000" />
     </task>
+    <task id="LOCAL-00001" summary="antv-f2-code1">
+      <created>1639723301878</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1639723301878</updated>
+    </task>
+    <task id="LOCAL-00002" summary="antv-f2-code1">
+      <created>1639723418132</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1639723418132</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="antv-f2-code1" />
+    <option name="LAST_COMMIT_MESSAGE" value="antv-f2-code1" />
   </component>
 </project>
