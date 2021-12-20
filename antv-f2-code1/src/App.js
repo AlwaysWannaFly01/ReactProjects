@@ -2,7 +2,8 @@ import React from "react";
 import {
     BrowserRouter,
     Route,
-    Routes
+    Routes,
+    HashRouter
 } from "react-router-dom";
 import Home from './components/home';
 import Page1 from './components/Page1';
@@ -12,7 +13,7 @@ import F2Demo2 from './components/F2Demo2';
 export default function App() {
     return (
         // 当前最新的react-router-dom版本 v6
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/page1/:name" element={<Page1/>}/>
@@ -21,7 +22,7 @@ export default function App() {
                 <Route path="about/*" element={<About/>}/>
                 <Route path="/dashboard" element={<Dashboard/>}/>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
