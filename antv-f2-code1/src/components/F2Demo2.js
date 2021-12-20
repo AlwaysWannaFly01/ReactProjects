@@ -27,6 +27,7 @@ export default class BarChart extends Component {
     }
 
     getUserPermissions() {
+
         // return axios.get('/user/12345/permissions');
     }
 

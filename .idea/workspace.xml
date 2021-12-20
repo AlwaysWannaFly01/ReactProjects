@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c128bb3d-37a3-4b75-b7e2-b35313ef2f0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/env.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/getHttpsConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/jest/babelTransform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/jest/cssTransform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/jest/fileTransform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/modules.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/paths.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/webpack.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/webpack/persistentCache/createEnvironmentHash.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/config/webpackDevServer.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/scripts/build.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/scripts/start.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/antv-f2-code1/scripts/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antv-f2-code1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/antv-f2-code1/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antv-f2-code1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/antv-f2-code1/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antv-f2-code1/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/antv-f2-code1/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antv-f2-code1/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/antv-f2-code1/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antv-f2-code1/src/components/F2Demo2.js" beforeDir="false" afterPath="$PROJECT_DIR$/antv-f2-code1/src/components/F2Demo2.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +104,7 @@
       <updated>1639706043035</updated>
       <workItem from="1639706044680" duration="6521000" />
       <workItem from="1639713468876" duration="6718000" />
-      <workItem from="1639963603174" duration="506000" />
+      <workItem from="1639963603174" duration="934000" />
     </task>
     <task id="LOCAL-00001" summary="antv-f2-code1">
       <created>1639723301878</created>
@@ -144,15 +127,22 @@
       <option name="project" value="LOCAL" />
       <updated>1639723832654</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="antv-f2-code1">
+      <created>1639967628121</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1639967628121</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="antv-f2-code1" />
     <MESSAGE value="调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整" />
+    <MESSAGE value="antv-f2-code1" />
+    <option name="LAST_COMMIT_MESSAGE" value="antv-f2-code1" />
   </component>
 </project>
