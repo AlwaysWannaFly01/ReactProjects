@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    BrowserRouter,
+    // BrowserRouter,
     Route,
     Routes,
     HashRouter
@@ -20,7 +20,6 @@ export default function App() {
                 <Route path="/f2demo" element={<F2Demo/>}/>
                 <Route path="/f2demo2" element={<F2Demo2/>}/>
                 <Route path="about/*" element={<About/>}/>
-                <Route path="/dashboard" element={<Dashboard/>}/>
             </Routes>
         </HashRouter>
     );
@@ -34,10 +33,3 @@ function About() {
     );
 }
 
-function Dashboard() {
-    return (
-        <div>
-            <h2>Dashboard</h2>
-        </div>
-    );
-}

@@ -23,6 +23,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+（将用于生产的应用程序构建到构建文件夹。 它在生产模式下正确捆绑 React 并优化构建以获得最佳性能 ）
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!

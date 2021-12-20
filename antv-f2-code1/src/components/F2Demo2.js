@@ -26,9 +26,8 @@ export default class BarChart extends Component {
         return axios.get('https://gw.alipayobjects.com/os/antfincdn/OVMtvjbnut/series-line.json');
     }
 
-    getUserPermissions() {
-
-        // return axios.get('/user/12345/permissions');
+    getAdminWufaLawBook() {
+        return axios.get('https://admin.wufalaw.cn/v1/book');
     }
 
 
@@ -121,10 +120,11 @@ export default class BarChart extends Component {
             <canvas id="container"></canvas>
           </div>`;
 
-        Promise.all([this.getData(), this.getUserPermissions()])
+        Promise.all([this.getData(), this.getAdminWufaLawBook()])
             .then(function (results) {
                 const acct = results[0];
                 console.log('acct', acct)
+
                 const chart = new F2.Chart({
                     id: 'container',
                     pixelRatio: window.devicePixelRatio
@@ -209,8 +209,9 @@ export default class BarChart extends Component {
                     ]);
 
                 chart.render();
-                // const perm = results[1];
 
+                const perm = results[1];
+                console.log('perm', perm)
             });
     };
 
