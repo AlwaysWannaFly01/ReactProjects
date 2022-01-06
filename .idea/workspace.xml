@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c128bb3d-37a3-4b75-b7e2-b35313ef2f0a" name="Default Changelist" comment="manifest.json,设置后直接打开build后的index.html，替换favicon.ico" />
+    <list default="true" id="c128bb3d-37a3-4b75-b7e2-b35313ef2f0a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +104,7 @@
       <workItem from="1639713468876" duration="6718000" />
       <workItem from="1639963603174" duration="10729000" />
       <workItem from="1640049040970" duration="1271000" />
-      <workItem from="1640075865382" duration="881000" />
+      <workItem from="1640075865382" duration="1067000" />
     </task>
     <task id="LOCAL-00001" summary="antv-f2-code1">
       <created>1639723301878</created>
@@ -162,18 +162,25 @@
       <option name="project" value="LOCAL" />
       <updated>1640076331581</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="调整">
+      <created>1640076908480</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1640076908480</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="调整" />
     <MESSAGE value="antv-f2-code1" />
     <MESSAGE value="github访问令牌token" />
     <MESSAGE value="一些调整" />
     <MESSAGE value="manifest.json,设置后直接打开build后的index.html，替换favicon.ico" />
-    <option name="LAST_COMMIT_MESSAGE" value="manifest.json,设置后直接打开build后的index.html，替换favicon.ico" />
+    <MESSAGE value="调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整" />
   </component>
 </project>
